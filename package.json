@@ -1,0 +1,24 @@
+{
+  "name": "moviecollectionmanager-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elihalperin2003/movieCollectionManager-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/elihalperin2003/movieCollectionManager-project/issues"
+  },
+  "homepage": "https://github.com/elihalperin2003/movieCollectionManager-project#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
