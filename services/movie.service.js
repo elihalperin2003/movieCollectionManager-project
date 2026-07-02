@@ -5,3 +5,7 @@ export const getAllNames = (data) => {
   }
   return names;
 };
+
+export const gatById = (data, id) => {
+  return data.find((movie) => (movie.id = id));
+};
