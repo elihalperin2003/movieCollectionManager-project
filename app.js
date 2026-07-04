@@ -5,6 +5,7 @@ import {
   getAllNames,
   gatById,
   filterExceptById,
+  searchInName,
 } from "./services/movie.service.js";
 
 const options = [
@@ -70,6 +71,16 @@ const option4 = (err, data) => {
   });
 };
 
+const option6 = (err, data) => {
+  if (err) {
+    return console.error(err);
+  }
+  const result = JSON.parse(data);
+  const word = readlineSync.question("word for serach? ");
+
+  console.log(`${word}: ${JSON.stringify(searchInName(result, word))}`);
+};
+
 function main() {
   let running = true;
   while (running) {
@@ -85,6 +96,9 @@ function main() {
       running = false;
     } else if (choise === 4) {
       readFromFile(option4);
+      running = false;
+    } else if (choise === 6) {
+      readFromFile(option6);
       running = false;
     }
   }

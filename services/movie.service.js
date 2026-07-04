@@ -13,3 +13,7 @@ export const gatById = (data, id) => {
 export const filterExceptById = (data, id) => {
   return data.filter((movie) => movie.id !== id);
 };
+
+export const searchInName = (data, word) => {
+  return data.filter((movie) => movie.title.includes(word));
+};
