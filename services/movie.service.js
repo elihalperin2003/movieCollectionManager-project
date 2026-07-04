@@ -9,3 +9,7 @@ export const getAllNames = (data) => {
 export const gatById = (data, id) => {
   return data.find((movie) => movie.id === id);
 };
+
+export const filterExceptById = (data, id) => {
+  return data.filter((movie) => movie.id !== id);
+};

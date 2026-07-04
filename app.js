@@ -1,7 +1,11 @@
 import readlineSync from "readline-sync";
 
 import { readFromFile, writeToFile } from "./services/file.service.js";
-import { getAllNames, gatById } from "./services/movie.service.js";
+import {
+  getAllNames,
+  gatById,
+  filterExceptById,
+} from "./services/movie.service.js";
 
 const options = [
   "Show all movies",
@@ -52,6 +56,20 @@ const option3 = (err, data) => {
   });
 };
 
+const option4 = (err, data) => {
+  if (err) {
+    return console.error(err);
+  }
+  const result = JSON.parse(data);
+  const id = readlineSync.questionInt("id to delete? ");
+  const newResult = filterExceptById(result, id);
+  return writeToFile(JSON.stringify(newResult), (err) => {
+    if (err) {
+      return console.error(err);
+    }
+  });
+};
+
 function main() {
   let running = true;
   while (running) {
@@ -64,6 +82,9 @@ function main() {
       running = false;
     } else if (choise === 3) {
       readFromFile(option3);
+      running = false;
+    } else if (choise === 4) {
+      readFromFile(option4);
       running = false;
     }
   }
