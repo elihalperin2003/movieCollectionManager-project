@@ -5,3 +5,6 @@ import fs from "fs";
 export function readFromFile(callback) {
   fs.readFile("utils/movie.json", callback);
 }
+export function writeToFile(data, callback) {
+  fs.writeFile("utils/movie.json", data, callback);
+}
