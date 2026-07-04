@@ -6,6 +6,7 @@ import {
   gatById,
   filterExceptById,
   searchInName,
+  searchByGenre,
 } from "./services/movie.service.js";
 
 const options = [
@@ -81,6 +82,16 @@ const option6 = (err, data) => {
   console.log(`${word}: ${JSON.stringify(searchInName(result, word))}`);
 };
 
+const option7 = (err, data) => {
+  if (err) {
+    return console.error(err);
+  }
+  const result = JSON.parse(data);
+  const genre = readlineSync.question("genre for serach? ");
+
+  console.log(`${genre}: ${JSON.stringify(searchByGenre(result, genre))}`);
+};
+
 function main() {
   let running = true;
   while (running) {
@@ -99,6 +110,9 @@ function main() {
       running = false;
     } else if (choise === 6) {
       readFromFile(option6);
+      running = false;
+    } else if (choise === 7) {
+      readFromFile(option7);
       running = false;
     }
   }

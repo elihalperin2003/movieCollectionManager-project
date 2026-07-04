@@ -17,3 +17,7 @@ export const filterExceptById = (data, id) => {
 export const searchInName = (data, word) => {
   return data.filter((movie) => movie.title.includes(word));
 };
+
+export const searchByGenre = (data, genre) => {
+  return data.filter((movie) => movie.genre === genre);
+};
